@@ -1,0 +1,20 @@
+﻿<Page x:Class="FaceDetectionAttendance.MVVM.View.AdninMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Background="#8fbfff"
+      Title="AdninMenu">
+
+    <Grid>
+        <Button Height="49" Width="234" Margin="10,450,1356,401" Content="Account Manage" FontSize="18" FontWeight="Bold" Click="Button_Click"/>
+        <Frame  Height="900" Width="1330" x:Name="Content" Margin="270,0,0,0" Background="#C7EEFF"/>
+        <Image x:Name="avt" Width="145" Height="145" Margin="54,52,1400,703"/>
+        <TextBlock x:Name="Name" Height="26" Width="145" FontSize="18" FontWeight="Bold" Margin="54,232,1400,642" TextAlignment="Center"/>
+        <Label x:Name="Clock" Height="40" Width="200" FontSize="12" FontWeight="Bold" Margin="1390,40,10,820"/>
+        <Button x:Name="Requestbtn" FontSize="18" FontWeight="Bold" Content="Request" Height="49" Width="234" Margin="10,552,1356,300" Click="Requestbtn_click"/>
+    </Grid>
+</Page>

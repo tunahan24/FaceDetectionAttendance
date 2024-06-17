@@ -1,0 +1,35 @@
+﻿<Page x:Class="FaceDetectionAttendance.MVVM.View.RecoveryUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Background="White"
+      Title="RecoveryUI">
+    <Grid>
+        <Line X1="0" Y1="0"
+              X2="0" Y2="223"
+              StrokeThickness="10"
+              Width="10"
+              Height="223"
+              Stroke="Black" Margin="679,106,911,572"/>
+        <Image Width="198" Height="198" Source="/Resource/Img/logo.png" Margin="410,118,992,584"/>
+        <TextBlock Text="RECOVERY PASSWORD" FontSize="40" FontWeight="Bold" Height="60" Width="500" Margin="761,188,339,652"/>
+        <TextBlock Text="Username:" FontSize="28" FontWeight="Bold" Height="50" Width="150" Margin="410,450,1040,400"/>
+        <TextBlock Text="Your faculty:" FontSize="28" FontWeight="Bold" Height="50" Width="200" Margin="410,505,990,345"/>
+        <TextBlock Text="Email:" FontSize="28" FontWeight="Bold" Height="50" Width="150" Margin="410,560,1040,290"/>
+        <TextBox x:Name="UsernameBox" Height="40" Width="400" Margin="611,455,589,405"/>
+        <TextBox x:Name="FalcultyBox" Height="40" Width="400" Margin="611,510,589,350" />
+        <TextBox x:Name="EmailBox" Height="40" Width="400" Margin="611,560,589,300" />
+        <TextBlock Text="Confirm" FontSize="28" FontWeight="Bold" Width="150" Height="50" Margin="639,632,811,218">
+        </TextBlock>
+        <Rectangle Height="25" Width="25" Stroke="Black" StrokeThickness="3" Margin="611,640,964,235" >
+
+        </Rectangle>
+        <Button x:Name="RecovBtn" Height="36" Width="144" Content="Recovery" FontSize="28" FontWeight="Bold" Padding="0,-5,0,5" Margin="1280,783,176,81" Click="RecovBtn_Click"/>
+        <Button x:Name="Back" Height="36" Width="144" Content="Back" FontSize="28" FontWeight="Bold" Margin="174,783,1282,81" Padding="0,-5,0,2" Click="Back_Click"/>
+    </Grid>
+</Page>
+ 

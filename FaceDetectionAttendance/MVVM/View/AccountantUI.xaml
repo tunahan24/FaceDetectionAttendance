@@ -1,0 +1,40 @@
+﻿<Page x:Class="FaceDetectionAttendance.MVVM.View.AccountantUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance"
+      xmlns:Components="clr-namespace:FaceDetectionAttendance.MVVM.Components"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1330"
+      Background="#C7EEFF"
+      Title="AccountantUI">
+
+    <Grid>
+        <Canvas Margin="0,-5,0,5">
+            <Rectangle Height="100" Width="1330" Margin="0,0,0,800" Fill="#C7EEFF"/>
+            <TextBlock Text="Accountant" Foreground="#1D242B" FontSize="32" FontWeight="Bold" Canvas.Left="579" Canvas.Top="29"/>
+            <TextBlock Name ="Faculty_Header" Foreground="#1D242B" Text="{Binding FacultyName}" FontSize="18" FontWeight="Bold" Height="26" Width="69" Canvas.Left="10" Canvas.Top="10"/>
+            <TextBlock Text="ABC company" Foreground="#1D242B" FontWeight="Bold" FontSize="18" Canvas.Left="10" Canvas.Top="52"/>
+            <TextBox Name="Year"  Canvas.Left="262" TextWrapping="Wrap" Canvas.Top="196" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" TextChanged="Year_TextChanged" PreviewTextInput="Year_PreviewTextInput"/>
+            <TextBlock Canvas.Left="227" FontWeight="Bold" TextWrapping="Wrap" Text="Year :" Canvas.Top="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Name="message_label" Foreground="Red" Content="Only number" Canvas.Left="231" Canvas.Top="142" Visibility="Collapsed"/>
+            <Button x:Name="Send_Button"  FontWeight="Bold" Height="32" Width="60" FontSize="15" Content="Send" Canvas.Left="952" Canvas.Top="200" Click="Send_Button_Click"/>
+            <Button x:Name="Excel_Button" FontWeight="Bold"  Content="Export excel" Height="32" Width="160" FontSize="15" Canvas.Left="1052" Canvas.Top="200" Click="Excel_Button_Click"/>
+            <Components:Clock Margin="1198,26,88,858" Foreground="#1D242B"/>
+        </Canvas>
+        <Line X1="0" X2="1330" Y1="0" Y2="0" StrokeThickness="2" Stroke="DarkGray" Height="2" Margin="0,93,0,805" />
+        <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="79,166,0,0" TextWrapping="Wrap" Text="Faculty Name:" VerticalAlignment="Top"/>
+        <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="79,193,0,0" TextWrapping="Wrap" Text="Month: " VerticalAlignment="Top"/>
+        <ComboBox Name="facultycbb" HorizontalAlignment="Left" Margin="164,163,0,0" VerticalAlignment="Top" Width="149" SelectionChanged="facultycbb_SelectionChanged"/>
+        <ComboBox Name="Monthcbb" HorizontalAlignment="Left" Margin="164,191,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="Monthcbb_SelectionChanged"/>
+        <DataGrid IsReadOnly="true" x:Name="WorkersDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Workers}" Margin="42,250,42,54" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID_Worker}" Width="30" />
+                <DataGridTextColumn Header="Workers Name" Binding="{Binding WorkerName}" Width="50" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

@@ -1,0 +1,35 @@
+﻿<Page x:Class="FaceDetectionAttendance.MVVM.View.RequestUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance.MVVM.View"
+      xmlns:Components="clr-namespace:FaceDetectionAttendance.MVVM.Components" 
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1330"
+      Background="#C7EEFF"
+      Title="RequestUI">
+
+    <Grid>
+        <Canvas>
+            <TextBlock Text="Request" FontSize="32" FontWeight="Bold" Margin="579,29,579,828"/>
+            <TextBlock Text="{Binding FacultyName}" FontSize="18" FontWeight="Bold" Margin="10,10,1251,864"/>
+            <TextBlock Text="ABC company" FontWeight="Bold" FontSize="18" Margin="10,52,1202,824"/>
+            <Components:Clock Canvas.Left="1200" Canvas.Top="23" />
+        </Canvas>
+        <Line X1="0" X2="1330" Y1="0" Y2="0" StrokeThickness="2" Stroke="DarkGray" Height="2" Margin="0,93,0,805" />
+        <TextBlock Height="20" Width="80" Text="Request Status" Margin="48,167,1202,713"/>
+        <ComboBox x:Name="Statuscbb" Height="20" Width="80" Margin="146,167,1104,713" ItemsSource="{Binding StatusList}" SelectionChanged="Statuscbb_SelectionChanged"/>
+        <Button x:Name="Acceptbtn" Height="30" Content="Accept" FontSize="16" FontWeight="Bold" Width="100" Margin="1023,205,207,665" Click="Acceptbtn_Click"/>
+        <Button x:Name="Denybtn" Height="30" Content="Deny" FontSize="16" FontWeight="Bold" Width="100" Margin="1150,205,80,665" Click="Denybtn_Click"/>
+        <DataGrid x:Name="Requestdtg" CanUserResizeColumns="False" IsReadOnly="True" Height="600" Width="1200" Margin="65,240,65,60" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="ID " Binding="{Binding id}"/>
+                <DataGridTextColumn Width="1*" Header="ID Attendance" Binding="{Binding id_attendance}"/>
+                <DataGridTextColumn Width="8*" Header="Detail" Binding="{Binding detail}"/>
+                <DataGridTextColumn Width="2*" Header="Status" Binding="{Binding status}"/>
+                <DataGridTextColumn Width="2*" Header="Sender"   Binding="{Binding usernamesent}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

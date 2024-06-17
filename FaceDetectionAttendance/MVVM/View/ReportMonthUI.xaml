@@ -1,0 +1,101 @@
+﻿<Page x:Class="FaceDetectionAttendance.MVVM.View.ReportMonthUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance.MVVM.View"
+      xmlns:Components="clr-namespace:FaceDetectionAttendance.MVVM.Components"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1330"
+      Background="#C7EEFF"
+      Title="ReportMonthUI">
+
+    <Grid>
+        <Canvas>
+            <Rectangle Height="100" Width="1330" Margin="0,0,0,800" Fill="#C7EEFF"/>
+            <TextBlock Text="Report" FontSize="32" FontWeight="Bold" Canvas.Left="579" Canvas.Top="29"/>
+            <TextBlock Name="Faculty_TextBlock" FontSize="18" FontWeight="Bold" Height="26" Width="auto" Canvas.Left="10" Canvas.Top="10"/>
+            <TextBlock Text="ABC company" FontWeight="Bold" FontSize="18" Canvas.Left="10" Canvas.Top="52"/>
+            <Components:Clock Margin="1198,26,88,858"/>
+        </Canvas>
+        <Line X1="0" X2="1330" Y1="0" Y2="0" StrokeThickness="2" Stroke="DarkGray" Height="2" Margin="0,93,0,805" />
+        <Button x:Name="ReportDay_Button"
+                Content="Day"
+                FontSize="13"
+                Width="47"
+                Height="27" 
+                Margin="88,138,1195,735" 
+                RenderTransformOrigin="1.368,0.238" 
+                Click="ReportDay_Button_Click"
+                />
+        <Button x:Name="ReportMonth_Button"
+                Content="Month"
+                FontSize="13"
+                Width="47"
+                Height="27" Margin="166,138,1117,735" 
+                Click="ReportMonth_Button_Click"
+                />
+        <Label Name="Message_Label"
+            Content="Only number"
+            Visibility="Collapsed"
+            Foreground="Red"
+            Margin="255,135,850,735"
+            FontSize="16"
+            Width="225"
+            Height="30" RenderTransformOrigin="0.369,1.7"/>
+        <Label Content="Month"
+               Margin="71,178,1175,677"
+               FontSize="18" RenderTransformOrigin="0.56,0.185"/>
+        <Label Content="Year"
+               Margin="77,219,1169,624"
+               FontSize="18" RenderTransformOrigin="0.56,0.185"/>
+        <TextBox x:Name="Month_TextBox"
+                 Width="79"
+                 Height="27"
+                 BorderThickness="5"
+                 Margin="166,187,1085,686"
+                 PreviewTextInput="TextBlock_OnlyNumber_PreviewTextInput"/>
+        <TextBox x:Name="Year_TextBox"
+                 Width="79"
+                 Height="27"
+                 BorderThickness="5"
+                 Margin="166,219,1085,654" 
+                 PreviewTextInput="TextBlock_OnlyNumber_PreviewTextInput"/>
+        <Button Content="Search"
+                x:Name="Search_Button"
+                Width="81"
+                Height="27"
+                FontSize="18"
+                Margin="308,187,941,686" Click="Search_Button_Click"/>
+
+        <DataGrid 
+            Name="MonthCount_DataGrid"
+            Height="490" Width="1188"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True" Margin="71,281,71,129">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id}" Width="0.5*" Header="ID"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding name}" Width="2.5*" Header ="Name" ></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding monthYear}" Width="1*" Header ="Month-Year"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding worked}" Width="2*" Header ="Go to work"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding late}" Width="2*" Header="Late"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding absent}" Width="2*" Header="Absent"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Export"
+                x:Name="Export_Button"
+                Width="81"
+                Height="27"
+                FontSize="18"
+                Margin="1022,829,227,44" Click="Export_Button_Click"/>
+        <Button Content="Send"
+                x:Name="Send_Button"
+                Width="81"
+                Height="27"
+                FontSize="18"
+                Margin="1147,829,102,44" Click="Send_Button_Click"/>
+
+    </Grid>
+</Page>

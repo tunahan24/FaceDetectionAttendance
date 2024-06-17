@@ -1,0 +1,23 @@
+﻿<Application x:Class="FaceDetectionAttendance.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FaceDetectionAttendance"
+             xmlns:view ="clr-namespace:FaceDetectionAttendance.MVVM.View"
+             xmlns:viewmodel="clr-namespace:FaceDetectionAttendance.MVVM.ViewModel"
+             Startup="Application_Startup"
+             >
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type TypeName=viewmodel:LoginViewModel}">
+            <view:Page1/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewmodel:AdninMenuViewModel}">
+            <view:AdninMenu/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewmodel:MenuStaffViewModel}">
+            <view:MenuStaff/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewmodel:RecoveryViewModel}">
+            <view:RecoveryUI/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

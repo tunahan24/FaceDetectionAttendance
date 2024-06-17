@@ -1,0 +1,199 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance"
+      xmlns:Components="clr-namespace:FaceDetectionAttendance.MVVM.Components" x:Class="FaceDetectionAttendance.MVVM.View.ReportUI"
+      xmlns:ViewModel ="clr-namespace:FaceDetectionAttendance.MVVM.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1330"
+      Background="#C7EEFF"
+      Title="ReportUI">
+    <Page.DataContext>
+        <ViewModel:ReportDayViewModel></ViewModel:ReportDayViewModel>
+    </Page.DataContext>
+    <Grid>
+        <Canvas>
+            <Rectangle Height="100" Width="1330" Margin="0,0,0,800" Fill="#C7EEFF"/>
+            <TextBlock Text="Report" FontSize="32" FontWeight="Bold" Canvas.Left="579" Canvas.Top="29"/>
+            <TextBlock Name="Faculty_TextBlock" FontSize="18" FontWeight="Bold" Height="26" Width="auto" Canvas.Left="10" Canvas.Top="10"/>
+            <TextBlock Text="ABC company" FontWeight="Bold" FontSize="18" Canvas.Left="10" Canvas.Top="52"/>
+            <Components:Clock Margin="1198,26,88,858"/>
+        </Canvas>
+        <Line X1="0" X2="1330" Y1="0" Y2="0" StrokeThickness="2" Stroke="DarkGray" Height="2" Margin="0,93,0,805" />
+        <Button x:Name="ReportDay_Button"
+                Content="Day"
+                FontSize="13"
+                Width="47"
+                Height="27" 
+                Margin="88,138,1195,735" 
+                RenderTransformOrigin="1.368,0.238" Click="ReportDay_Button_Click"
+                />
+        <Button x:Name="ReportMonth_Button"
+                Content="Month"
+                FontSize="13"
+                Width="47"
+                Height="27" Margin="166,138,1117,735" Click="ReportMonth_Button_Click"
+                />
+        <Label Content="Choose date for getting the list" 
+               Margin="97,187,1008,683"
+               FontSize="16"
+               Width="225"
+               Height="30"/>
+        <DatePicker Name="Date_DatePicker"
+                    Margin="152,227,953,643"
+                    FontSize="18"/>
+        <Button Content="Search"
+                x:Name="Search_Button"
+                Width="81"
+                Height="27"
+                FontSize="18"
+                Margin="415,230,834,643" Click="Search_Button_Click"/>
+        <TextBlock Text="Date"
+                   FontSize="18"
+                   TextAlignment="Center"
+                   VerticalAlignment="Top"
+                   Width="50" 
+                   Margin="97,230,1183,0" 
+                   />
+        <ComboBox Name="Shift_ComboBox"
+                  Width="67"
+                  Height="30" 
+                  Margin="1194,239,69,631"
+                  RenderTransformOrigin="0.537,3.967"
+                  FontSize="18"
+                  SelectionChanged="Shift_ComboBox_SelectionChanged"
+                  SelectedValuePath="Content">
+            <ComboBoxItem Content="Ca 1" IsSelected="True"></ComboBoxItem>
+            <ComboBoxItem Content="Ca 2" ></ComboBoxItem>
+        </ComboBox>
+
+        <!--/////////////////////////////////////////////////-->
+        <DataGrid 
+            x:Name="AttandanceWorkers_DataGrid_1"
+            Width="500"
+            Margin="89,380,741,322"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            Visibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="4.5*" Header="Name" Binding="{Binding name}"/>
+                <DataGridTextColumn Width="4.5*" Header="Date_Time" Binding="{Binding dt}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid 
+            x:Name="AbsenteeWorkers_DataGrid_1"
+            Width="500"
+            Margin="415,644,415,58"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            Visibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="2*" Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="8*" Header="Name" Binding="{Binding name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid 
+            x:Name="LateWorkers_DataGrid_1"
+            Width="500"
+            Margin="728,380,102,322"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            Visibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="4.5*" Header="Name" Binding="{Binding name}"/>
+                <DataGridTextColumn Width="4.5*" Header="Date_Time" Binding="{Binding dt}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--/////////////////////////////////////////////////-->
+        <Label Content="Attendance workers list" 
+            Margin="88,345,1017,525"
+            FontSize="16"
+            Width="225"
+            Height="30" RenderTransformOrigin="0.597,1.823"/>
+        <Label Content="Late workers list" 
+            Margin="728,345,377,525"
+            FontSize="16"
+            Width="225"
+            Height="30" RenderTransformOrigin="0.597,1.823"/>
+        <Label Content="Absentee workers list" 
+            Margin="415,609,690,261"
+            FontSize="16"
+            Width="225"
+            Height="30"/>
+        <!--/////////////////////////////////////////////////-->
+        <DataGrid 
+            x:Name="AttandanceWorkers_DataGrid_2"
+            Width="500"
+            Margin="89,380,741,322"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="4.5*" Header="Name" Binding="{Binding name}"/>
+                <DataGridTextColumn Width="4.5*" Header="Date_Time" Binding="{Binding dt}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid 
+            x:Name="AbsenteeWorkers_DataGrid_2"
+            Width="500"
+            Margin="415,644,415,58"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="2*" Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="8*" Header="Name" Binding="{Binding name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid 
+            x:Name="LateWorkers_DataGrid_2"
+            Width="500"
+            Margin="728,380,102,322"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False"
+            IsReadOnly="True"
+            Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="4.5*" Header="Name" Binding="{Binding name}"/>
+                <DataGridTextColumn Width="4.5*" Header="Date_Time" Binding="{Binding dt}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--/////////////////////////////////////////////////-->
+        <Button Content="Export"
+                x:Name="Export_Button"
+                Width="81"
+                Height="27"
+                FontSize="18"
+                Margin="1022,829,227,44" Click="Export_Button_Click"/>
+        <Button Content="Send"
+            x:Name="Send_Button"
+            Width="81"
+            Height="27"
+            FontSize="18"
+            Margin="1147,829,102,44" Click="Send_Button_Click"/>
+
+        <Label Name="Message_Label"
+            Content="Only number"
+            Visibility="Collapsed"
+            Foreground="Red"
+            Margin="313,187,792,683"
+            FontSize="16"
+            Width="225"
+            Height="30"/>
+        
+
+    </Grid>
+</Page>

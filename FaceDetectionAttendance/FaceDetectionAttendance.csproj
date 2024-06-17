@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resource\Img\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="haarcascade_frontalface_default.xml" />
+    <None Remove="Resource\Avatar\admin1.png" />
+    <None Remove="Resource\Avatar\staff1.png" />
+    <None Remove="Resource\Img\Background.png" />
+    <None Remove="Resource\Img\Background2.png" />
+    <None Remove="Resource\Img\Background3.png" />
+    <None Remove="Resource\Img\logo.png" />
+    <None Remove="solidcolor.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="haarcascade_frontalface_default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\Img\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Avatar\staff1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="Emgu.CV" Version="4.9.0.5494" />
+    <PackageReference Include="Emgu.CV.runtime.windows" Version="4.9.0.5494" />
+    <PackageReference Include="Emgu.CV.UI" Version="4.7.0.5276" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    <PackageReference Include="OpenCV" Version="2.4.11" />
+    <PackageReference Include="OpenCvSharp4" Version="4.10.0.20240616" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.6" />
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Avatar\admin1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Img\Background.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Img\Background2.png" />
+    <Resource Include="Resource\Img\Background3.png" />
+    <Resource Include="Resource\Img\logo.png" />
+    <Resource Include="Resource\Img\solidcolor.png" />
+  </ItemGroup>
+
+</Project>

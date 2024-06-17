@@ -1,0 +1,44 @@
+﻿<Page x:Class="FaceDetectionAttendance.MVVM.View.SendRequestUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FaceDetectionAttendance.MVVM.View"
+      xmlns:Components="clr-namespace:FaceDetectionAttendance.MVVM.Components"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1330"
+      Background="#C7EEFF"
+      Title="SendRequestUI">
+
+    <Grid>
+        <Canvas Margin="-10,0,10,0">
+            <TextBlock Text="Request" FontSize="32" FontWeight="Bold" Margin="579,29,579,828"/>
+            <TextBlock Text="{Binding FacultyName}" FontSize="18" FontWeight="Bold" Margin="10,10,1251,864"/>
+            <TextBlock Text="ABC company" FontWeight="Bold" FontSize="18" Margin="10,52,1202,824"/>
+            <Components:Clock Margin="1198,26,88,858"/>
+        </Canvas>
+        <Line X1="0" X2="1330" Y1="0" Y2="0" StrokeThickness="2" Stroke="DarkGray" Height="2" Margin="0,93,0,805" />
+        <Line X1="0" X2="0"
+              Y1="0" Y2="500" StrokeThickness="2" Stroke="Black" Height="500" Width="2" Margin="602,300,726,100"/>
+        <TextBlock Height="30" Width="150" Text="Request sent" FontWeight="Bold" FontSize="18" Margin="633,232,547,638"/>
+        <TextBlock Text="Enter information of employees who were wrongly checked in" Height="30" Width="500" FontSize="17" FontWeight="Bold" HorizontalAlignment="Left" Canvas.Top="186" VerticalAlignment="Top" Margin="78,232,0,0"/>
+        <TextBlock Text="Worker name: " Height="30" Width="150" FontSize="16" FontWeight="Bold" Margin="78,285,1102,585"/>
+        <TextBox x:Name="Nametxb" Height="30" Width="200" Margin="228,285,902,585"/>
+        <TextBlock Text="Worker Id: " Height="30" Width="150" FontSize="16" FontWeight="Bold" Margin="78,330,1102,540"/>
+        <TextBox x:Name="Idtxb" Height="30" Width="200" Margin="228,330,902,540"/>
+        <TextBlock Text="Date: " Height="30" Width="150" FontSize="16" FontWeight="Bold" Margin="78,375,1102,495"/>
+        <TextBox x:Name="Datetxb" Height="30" Width="200" Margin="228,375,902,495"/>
+        <TextBlock Text="Shift: " Height="30" Width="150" FontSize="16" FontWeight="Bold" Margin="78,416,1102,454"/>
+        <ComboBox x:Name="Shiftcbb" Height="30" Width="50" Margin="228,415,1052,455" RenderTransformOrigin="0.46,0.433"/>
+        <Button x:Name="SendRequestbtn" Height="30" Width="100" Content="Send" Margin="328,495,902,375" Click="SendRequestbtn_Click"/>
+        <Button x:Name="clear" Height="30" Width="100" Content="Clear" Margin="178,495,1052,375" Click="clear_Click"/>
+        <DataGrid x:Name="RequestSentdtg" Margin="633,280,65,54">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="2*"   Header="Detail" Binding="{Binding detail}"/>
+                <DataGridTextColumn Width="3*"   Header="State" Binding="{Binding states}"/>
+                <DataGridTextColumn Width="2*"   Header="Username Sent" Binding="{Binding usernamesent}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
+ 
